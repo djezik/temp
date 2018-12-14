@@ -1,7 +1,8 @@
 #DB_LINK = "sqlite:///test_db"
 from os import environ
 
-DB_LINK = environ["DATABASE_URL"]
+#DB_LINK = environ["DATABASE_URL"]
+DB_LINK = "postgresql://localhost/botdb"
 
 # REQUEST_KWARGS = {
 #     'proxy_url': 'socks5://vpn.qjex.xyz:1080',
