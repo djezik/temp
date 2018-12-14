@@ -1,0 +1,45 @@
+                                          Table "public.users"
+    Column     |            Type             | Collation | Nullable |              Default              
+---------------+-----------------------------+-----------+----------+-----------------------------------
+ id            | bigint                      |           | not null | nextval('users_id_seq'::regclass)
+ permissions   | bigint                      |           |          | 
+ cash          | bigint                      |           |          | 
+ referral_cash | bigint                      |           |          | 
+ last_bonus    | timestamp without time zone |           |          | 
+ blocked       | boolean                     |           |          | 
+ last_activity | timestamp without time zone |           |          | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "chats_states" CONSTRAINT "chats_states_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
+    TABLE "referral_links" CONSTRAINT "referral_links_invited_by_id_fkey" FOREIGN KEY (invited_by_id) REFERENCES users(id)
+    TABLE "subscriptions" CONSTRAINT "subscriptions_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
+
+                                                             Table "public.users"
+    Column     |            Type             | Collation | Nullable |              Default              | Storage | Stats target | Description 
+---------------+-----------------------------+-----------+----------+-----------------------------------+---------+--------------+-------------
+ id            | bigint                      |           | not null | nextval('users_id_seq'::regclass) | plain   |              | 
+ permissions   | bigint                      |           |          |                                   | plain   |              | 
+ cash          | bigint                      |           |          |                                   | plain   |              | 
+ referral_cash | bigint                      |           |          |                                   | plain   |              | 
+ last_bonus    | timestamp without time zone |           |          |                                   | plain   |              | 
+ blocked       | boolean                     |           |          |                                   | plain   |              | 
+ last_activity | timestamp without time zone |           |          |                                   | plain   |              | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "chats_states" CONSTRAINT "chats_states_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
+    TABLE "referral_links" CONSTRAINT "referral_links_invited_by_id_fkey" FOREIGN KEY (invited_by_id) REFERENCES users(id)
+    TABLE "subscriptions" CONSTRAINT "subscriptions_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
+
+                             Access privileges
+ Schema | Name  | Type  | Access privileges | Column privileges | Policies 
+--------+-------+-------+-------------------+-------------------+----------
+ public | users | table |                   |                   | 
+(1 row)
+
+    id     | permissions | cash | referral_cash |         last_bonus         | blocked |       last_activity        
+-----------+-------------+------+---------------+----------------------------+---------+----------------------------
+ 440738530 |           1 | 4800 |             0 | 2017-11-10 11:38:31.251465 | f       | 2018-11-10 13:28:55.098647
+(1 row)
+
